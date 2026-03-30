@@ -1,4 +1,4 @@
-# Eli Maholik
+# Computer Science ePortfolio
 
 Welcome to my ePortfolio. This site showcases my work throughout the Computer Science capstone, including my code review, software enhancements, and reflections on the program outcomes I have achieved.
 
