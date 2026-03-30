@@ -1,4 +1,8 @@
-# Code Review
+# Eli Maholik
+
+<hr />
+
+## Code Review
 This code review examines my original Android inventory application, discusses its strengths and weaknesses, and outlines the enhancements I plan to make as part of my capstone project.
 
 <div style="text-align:center;">
