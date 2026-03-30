@@ -2,4 +2,4 @@ remote_theme: pages-themes/cayman@v0.2.0
 plugins:
 - jekyll-remote-theme
 title: David Maholik
-description: This ePortfolio is where you will find all of my projects!
+description: BS in Computer Science ePortfolio
