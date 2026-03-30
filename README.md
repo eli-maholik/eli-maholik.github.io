@@ -1,6 +1,8 @@
+# Eli Maholik
+---
 Welcome to my ePortfolio. This site showcases my work throughout the Computer Science capstone, including my code review, software enhancements, and reflections on the program outcomes I have achieved.
 ---
-# Code Review
+## Code Review
 This code review examines my original Android inventory application, discusses its strengths and weaknesses, and outlines the enhancements I plan to make as part of my capstone project.
 
 <div style="text-align:center;">
