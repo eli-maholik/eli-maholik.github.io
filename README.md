@@ -2,6 +2,11 @@
 
 This ePortfolio showcases my work throughout the Computer Science capstone, including my code review, software enhancements, and reflections on the program outcomes I have achieved.
 
+# Professional Self-Assessment
+Throughout my time in the Computer Science program at Southern New Hampshire University, I have developed a strong foundation in software development, problem solving, and professional communication. Completing my coursework and building my ePortfolio has allowed me to not only demonstrate my technical abilities, but also reflect on how those skills translate into real-world applications. As I prepare to enter the professional field, I feel confident in my ability to design, build, and improve software solutions.
+
+One of the most valuable aspects of this program has been learning how to work in 
+
 ## Code Review
 This code review examines my original Android inventory application, discusses its strengths and weaknesses, and outlines the enhancements I plan to make as part of my capstone project.
 
