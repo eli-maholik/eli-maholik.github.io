@@ -82,7 +82,7 @@ function Navbar() {
           <a href="#skills" className="hover:text-blue-600">Skills</a>
           <a href="#about" className="hover:text-blue-600">About</a>
           <a href="#contact" className="hover:text-blue-600">Contact</a>
-          <a href="/public/resume.pdf" className="rounded-lg bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700">Resume</a>
+          <a href="/resume.pdf" className="rounded-lg bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700">Resume</a>
         </div>
       </nav>
     </header>
