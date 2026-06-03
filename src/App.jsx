@@ -1,38 +1,4 @@
-const projects = [
-  {
-    title: "Android Inventory Management App",
-    description:
-      "Native Android app for managing inventory with user accounts, CRUD operations, SMS alerts, and backend API integration.",
-    tech: ["Java", "Android Studio", "SQLite", "Node.js", "Express", "JWT"],
-    buttons: [
-      {
-        label: "Github",
-        href: "https://github.com/eli-maholik/inventory-application-system",
-      },
-      {
-        label: "Screenshots",
-        href: "#android-screenshots",
-      }
-    ],
-  },
-
-  {
-    title: "Personal Portfolio Website",
-    description:
-      "A responsive portfolio website to showcase projects, skills, experience, and contact information.",
-    tech: ["React", "Vite", "Tailwind CSS"],
-    buttons: [
-      {
-        label: "GitHub",
-        href: "https://github.com/eli-maholik/eli-maholik.github.io",
-      },
-      {
-        label: "Live Demo",
-        href: "https://eli-maholik.github.io",
-      },
-    ],
-  },
-];
+import { useState } from "react";
 
 const skills = [
   {
@@ -59,8 +25,7 @@ function App() {
       <Navbar />
       <Hero />
       <FeaturedProject />
-      <OtherProjects />
-      <AndroidScreenshots />
+      <AndroidProject />
       <Skills />
       <About />
       <Contact />
@@ -219,6 +184,153 @@ function FeaturedProject() {
   );
 }
 
+const androidScreenshots = [
+  {
+    src: "/images/inventory.png",
+    alt: "Android inventory app main inventory screen",
+    caption: "Main inventory screen with item cards and stock information.",
+  },
+  {
+    src: "/images/search.png",
+    alt: "Android inventory app search features",
+    caption: "Search functionality for quickly finding inventory items.",
+  },
+  {
+    src: "/images/filter.png",
+    alt: "Android inventory app filter features",
+    caption: "Filtering tools for narrowing inventory results."
+  }
+]
+
+function AndroidProject() {
+  return (
+    <section className="border-b border-slate-200 bg-slate-50 py-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 md:grid-cols-2">
+        <div>
+          <p className="mb-2 text-sm font-semibold text-blue-600">
+            Featured Academic Project
+          </p>
+
+          <h2 className="text-4xl font-bold">
+            Android Inventory Management App
+          </h2>
+
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            A native Android inventory management app build in Java for tracking 
+            inventory items, managing stock levels, and supporting common mobile 
+            app workflows like search, filtering, local persistence, and user 
+            interaction. 
+          </p>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {[
+              "Java",
+              "Android Studio",
+              "SQLite",
+              "Mobile UI",
+              "CRUD",
+              "Search",
+              "Filtering",
+            ].map((tech) => (
+              <span key={tech} className="tech-pill">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <ul className="mt-6 space-y-3 text-slate-700">
+            <ProjectBullet text="Built a native Android interface for managing inventory items" />
+            <ProjectBullet text="Implemented inventory viewing, searching, and filtering workflows" />
+            <ProjectBullet text="Used local data persistence to store and manage inventory records" />
+            <ProjectBullet text="Designed mobile-friendly screens with a clear visual hierarchy" />
+          </ul>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://github.com/eli-maholik/inventory-application-system"
+              className="btn-primary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View GitHub
+            </a>
+          </div>
+        </div>
+
+        <ScreenshotCarousel screenshots={androidScreenshots} />
+      </div>
+    </section>
+  )
+}
+
+function ScreenshotCarousel({ screenshots }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const currentScreenshot = screenshots[currentIndex];
+
+  function showPreviousScreenshot() {
+    setCurrentIndex((previousIndex) =>
+      previousIndex === 0 ? screenshots.length - 1 : previousIndex - 1
+    );
+  }
+
+  function showNextScreenshot() {
+    setCurrentIndex((previousIndex) =>
+      previousIndex === screenshots.length - 1 ? 0 : previousIndex + 1
+    );
+  }
+
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="relative mx-auto flex max-w-md items-center justify-center">
+        <button
+          type="button"
+          onClick={showPreviousScreenshot}
+          className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-xl text-white hover:bg-black/80"
+          aria-label="Previous screenshot"
+        >
+          <span className="leading-none -translate-y-px">‹</span>
+        </button>
+
+        <div className="max-w-xs overflow-hidden rounded-[2rem] border-8 border-slate-900 bg-slate-900 shadow-xl">
+          <img 
+            src={currentScreenshot.src}
+            alt={currentScreenshot.alt}
+            className="h-[560px] w-full rounded-[1.45rem] object-cover"
+          />
+        </div>
+
+        <button
+          type="button"
+          onClick={showNextScreenshot}
+          className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-xl text-white hover:bg-black/80"
+          aria-label="Next screenshot"
+        >
+          <span className="leading-none -translate-y-px">›</span>
+        </button>
+      </div>
+
+      <p className="mt-4 text-center text-sm text-slate-600">
+        {currentScreenshot.caption}
+      </p>
+
+      <div className="mt-4 flex justify-center gap-2">
+        {screenshots.map((screenshot, index) =>(
+          <button 
+            key={screenshot.src}
+            type="button"
+            onClick={() => setCurrentIndex(index)}
+            className={`h-2.5 w-2.5 rounded-full transition ${
+              index === currentIndex ? "bg-blue-600" : "bg-slate-300"
+            }`}
+            aria-label={`Show screenshot ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProjectBullet({ text }) {
   return (
     <li className="flex gap-3">
@@ -230,95 +342,6 @@ function ProjectBullet({ text }) {
   );
 }
 
-function OtherProjects() {
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
-      <h2 className="mb-8 text-3xl font-bold">Other Projects</h2>
-
-      <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-          >
-            <div className="mb-5 flex h-48 items-center justify-center rounded-xl bg-slate-100">
-              <div className="rounded-2xl border-4 border-slate-900 bg-white p-4 shadow-lg">
-                <div className="mb-3 h-6 rounded bg-blue-600" />
-                <div className="space-y-2">
-                  <div className="h-4 w-40 rounded bg-slate-200" />
-                  <div className="h-4 w-32 rounded bg-slate-200" />
-                  <div className="h-4 w-36 rounded bg-slate-200" />
-                </div>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-bold">{project.title}</h3>
-            <p className="mt-3 text-slate-600">{project.description}</p>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <span key={tech} className="tech-pill">
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              {project.buttons.map((button) => (
-                <a 
-                  key={button.label} 
-                  href={button.href}
-                  className="btn-secondary"
-                  target={button.href.startsWith("http") ? "_blank" : undefined}
-                  rel={button.href.startsWith("http") ? "noreferrer" : undefined}
-                >
-                  {button.label}
-                </a>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function AndroidScreenshots() {
-  return (
-    <section id="android-screenshots" className="mx-auto max-w-7xl px-6 py-20">
-      <div className="mx-auto max-w-5xl px-6">
-
-        <h2 className="mb-3 text-3xl font-bold">
-          Android Inventory Screenshots
-        </h2>
-
-        <p className="mb-8 text-slate-600">
-          Screenshots from my Android inventory management app showing the main inventory screen, search functionality, and filtering tools.
-        </p>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          <img
-            src="images/inventory.png"
-            alt="Android inventory app main inventory screen"
-            className="rounded-2xl border border-slate-200 bg-white shadow-sm"
-          />
-
-          <img
-            src="images/search.png"
-            alt="Android inventory app search feature"
-            className="rounded-2xl border border-slate-200 bg-white shadow-sm"
-          />
-
-          <img
-            src="/images/filter.png"
-            alt="Android inventory app filter feature"
-            className="rounded-2xl border border-slate-200 bg-white shadow-sm"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Skills() {
   return (
