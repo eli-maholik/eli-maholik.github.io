@@ -47,7 +47,7 @@ function Navbar() {
           <a href="#skills" className="hover:text-blue-600">Skills</a>
           <a href="#about" className="hover:text-blue-600">About</a>
           <a href="#contact" className="hover:text-blue-600">Contact</a>
-          <a href="/resume.pdf" className="rounded-lg bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700">Resume</a>
+          <a href="/eli_maholik_resume.pdf" className="rounded-lg bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700">Resume</a>
         </div>
       </nav>
     </header>
@@ -80,7 +80,7 @@ function Hero() {
           <a href="#projects" className="btn-primary">
             View Projects
           </a>
-          <a href="/resume.pdf" className="btn-secondary">
+          <a href="/eli_maholik_resume.pdf" className="btn-secondary">
             Download Resume
           </a>
           <a href="https://github.com/eli-maholik" className="btn-secondary">
@@ -408,8 +408,12 @@ function About() {
       </div>
 
       <div className="flex justify-center">
-        <div className="flex h-72 w-72 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-100 to-slate-200 text-7xl shadow-sm">
-          👨‍💻
+        <div className="rounded-3xl bg-gradient-to-br from-blue-100 to-slate-200 p-4 shadow-sm">
+          <img 
+            src="/images/headshot.jpg"
+            alt="Headshot of Eli Maholik"
+            className="h-72 w-72 rounded-2xl object-cover shadow-md"
+          />
         </div>
       </div>
     </section>
