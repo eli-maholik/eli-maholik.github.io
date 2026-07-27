@@ -124,63 +124,237 @@ function Stat({ label, value }) {
   );
 }
 
+const rentOpsScreenshots = [
+  {
+    src: "/images/booking.png",
+    alt: "RentOps 360 booking form with unit, customer, rental dates, locations, and accessories",
+    title: "Booking Workflow",
+    caption:
+      "Create a complete reservation with unit availability, customer details, pickup and return locations, rental dates, and accessory quantities.",
+  },
+  {
+    src: "/images/calendar.png",
+    alt: "RentOps 360 monthly booking calendar and upcoming rental activity",
+    title: "Bookings Calendar",
+    caption:
+      "See active reservations across the month and keep upcoming pickups and returns visible in one operational view.",
+  },
+  {
+    src: "/images/customers.png",
+    alt: "RentOps 360 customer details with contact information and rental history",
+    title: "Customer Records",
+    caption:
+      "Keep customer information, notes, documentation placeholders, and complete rental history connected to a single profile.",
+  },
+  {
+    src: "/images/Maintenance.png",
+    alt: "RentOps 360 maintenance records with status, unit, date, and cost",
+    title: "Maintenance Tracking",
+    caption:
+      "Search and filter service records while tracking maintenance status, scheduled dates, affected units, and repair costs.",
+  },
+  {
+    src: "/images/UnitDetails.png",
+    alt: "RentOps 360 unit details showing trailer photo, pricing, booking history, and maintenance notes",
+    title: "Unit History",
+    caption:
+      "Review a trailer's profile, rental pricing, availability, booking history, maintenance notes, and uploaded photos in one place.",
+  },
+];
+
 function FeaturedProject() {
   return (
-    <section id="projects" className="border-y border-slate-200 bg-white py-20">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm">
-         <div className="flex justify-center">
-          <img
-            src="/images/upcoming.png"
-            alt="RentOps 360 upcoming rentals screen"
-            className="w-full max-w-md rounded-xl border border-slate-200 shadow-sm"
-          />
-         </div>
-        </div>
-
-        <div>
-          <p className="mb-2 text-sm font-semibold text-blue-600">
-            Featured Project
-          </p>
-          <h2 className="text-4xl font-bold">RentOps 360</h2>
-
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            A full-stack rental management platform built for a trailer rental
-            business.
-          </p>
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            {[
-              "React",
-              "TypeScript",
-              "Tailwind CSS",
-              "Node.js",
-              "Express",
-              "Prisma",
-              "PostgreSQL",
-              "Neon",
-              "Vercel",
-              "Render",
-            ].map((tech) => (
-              <span key={tech} className="tech-pill">
-                {tech}
+    <section
+      id="projects"
+      className="border-y border-slate-200 bg-white py-20"
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          {/* Left side: project introduction */}
+          <div>
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700">
+                Flagship Client Project
               </span>
-            ))}
+
+              <span className="text-sm font-medium text-slate-500">
+                Private beta · Active development
+              </span>
+            </div>
+
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+              RentOps 360
+            </h2>
+
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+              A full-stack rental operations platform built for a real trailer
+              rental business. RentOps 360 replaces disconnected spreadsheets
+              and manual processes with one system for reservations, fleet
+              availability, customers, accessories, maintenance, and damage
+              tracking.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Node.js",
+                "Express",
+                "Prisma",
+                "PostgreSQL",
+                "Neon",
+                "Vercel",
+                "Render",
+                "Cloudinary",
+              ].map((tech) => (
+                <span key={tech} className="tech-pill">
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <ul className="mt-6 space-y-3 text-slate-700">
-            <ProjectBullet text="Complete reservation and customer management system" />
-            <ProjectBullet text="Responsive dashboards, customer profiles, and booking workflows" />
-            <ProjectBullet text="Secure JWT authentication with protected API routes" />
-            <ProjectBullet text="Deployed frontend on Vercel and backend on Render" />
-          </ul>
+          {/* Right side: important workflows */}
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-blue-600">
+              Core workflows
+            </p>
 
-          <p className="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
-            Source code is private due to client confidentiality. Screenshots shown use demo data where applicable.
-          </p>
+            <ul className="mt-5 space-y-4 text-slate-700">
+              <ProjectBullet text="Create and update reservations with availability and accessory checks" />
+              <ProjectBullet text="Track fleet status, check-outs, check-ins, and yard locations" />
+              <ProjectBullet text="Connect customer, booking, maintenance, and damage history" />
+              <ProjectBullet text="Manage role-based access with secure JWT authentication" />
+              <ProjectBullet text="Deploy and maintain a full production-style cloud stack" />
+            </ul>
+          </div>
         </div>
+
+        {/* Screenshot selector */}
+        <RentOpsGallery screenshots={rentOpsScreenshots} />
+
+        <p className="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+          Source code is private due to client confidentiality. Screenshots use
+          demo data and represent features I designed and implemented across the
+          React frontend, Express API, and PostgreSQL database.
+        </p>
       </div>
     </section>
+  );
+}
+
+function RentOpsGallery({ screenshots }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const currentScreenshot = screenshots[currentIndex];
+
+  function showPreviousScreenshot() {
+    setCurrentIndex((previousIndex) =>
+      previousIndex === 0
+        ? screenshots.length - 1
+        : previousIndex - 1
+    );
+  }
+
+  function showNextScreenshot() {
+    setCurrentIndex((previousIndex) =>
+      previousIndex === screenshots.length - 1
+        ? 0
+        : previousIndex + 1
+    );
+  }
+
+  return (
+    <div className="mx-auto mt-12 max-w-6xl overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 shadow-xl">
+      {/* Fake browser header */}
+      <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6">
+        <div className="flex items-center gap-2" aria-hidden="true">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+          <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+          <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
+        </div>
+
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
+          Product walkthrough
+        </p>
+      </div>
+
+      {/* Main selected image */}
+      <div className="relative bg-slate-900 p-3 sm:p-5">
+        <div className="aspect-[1920/947] overflow-hidden rounded-2xl bg-slate-900">
+          <img
+            key={currentScreenshot.src}
+            src={currentScreenshot.src}
+            alt={currentScreenshot.alt}
+            className="block h-full w-full object-contain object-top"
+          />
+        </div>
+
+        {/* Previous button */}
+        <button
+          type="button"
+          onClick={showPreviousScreenshot}
+          className="absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/80 text-2xl text-white shadow-lg backdrop-blur transition hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 sm:left-8"
+          aria-label="Show previous RentOps screenshot"
+        >
+          <span className="-translate-y-px">‹</span>
+        </button>
+
+        {/* Next button */}
+        <button
+          type="button"
+          onClick={showNextScreenshot}
+          className="absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/80 text-2xl text-white shadow-lg backdrop-blur transition hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 sm:right-8"
+          aria-label="Show next RentOps screenshot"
+        >
+          <span className="-translate-y-px">›</span>
+        </button>
+      </div>
+
+      {/* Caption and screenshot selectors */}
+      <div className="border-t border-white/10 bg-slate-950 px-5 py-6 sm:px-7">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-lg font-bold text-white">
+              {currentScreenshot.title}
+            </p>
+
+            <p className="mt-1 max-w-4xl text-sm leading-6 text-slate-400">
+              {currentScreenshot.caption}
+            </p>
+          </div>
+
+          <p className="shrink-0 text-sm font-semibold text-blue-400">
+            {currentIndex + 1} / {screenshots.length}
+          </p>
+        </div>
+
+        {/* Thumbnail selector */}
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+          {screenshots.map((screenshot, index) => {
+            const isSelected = index === currentIndex;
+
+            return (
+              <button
+                key={screenshot.src}
+                type="button"
+                onClick={() => setCurrentIndex(index)}
+                className={`rounded-lg border px-3 py-2.5 text-center text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                  isSelected
+                    ? "border-blue-500 bg-blue-600 text-white"
+                    : "border-white/10 bg-white/5 text-slate-300 hover:border-white/30 hover:bg-white/10 hover:text-white"
+                }`}
+                aria-label={`Show ${screenshot.title} screenshot`}
+                aria-pressed={isSelected}
+              >
+                {screenshot.title}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 
